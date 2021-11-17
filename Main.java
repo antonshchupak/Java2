@@ -1,30 +1,38 @@
-package lesson3.task2;
+package lesson3.task1;
 
-public class Main  {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
     public static void main(String[] args) {
-        PhoneBook phoneBook = new PhoneBook();
-        phoneBook.add("Jacobs", "89001001010");
-        phoneBook.add("Peters", "891001001011");
-        phoneBook.add("Peters", "891001001012");
-        phoneBook.add("Williams", "891001002020");
-        phoneBook.add("Brown", "890001001011");
-        phoneBook.add("Brown", "891001054011");
-
-        System.out.println("Jacobs");
-        for (String number: phoneBook.get("Jacobs")) {
-            System.out.println(" " + number);
+    String [] words = new String[] {
+            "pencil",
+            "table",
+            "pen",
+            "tree",
+            "bee",
+            "mouse",
+            "dog",
+            "table",
+            "lemon",
+            "tree",
+            "bear",
+            "song",
+            "pen",
+            "photo",
+            "name"};
+        Map<String, Integer> wordCounter = new HashMap<>();
+        for (String word: words) {
+            if(wordCounter.containsKey(word)) {
+                wordCounter.put(word, wordCounter.get(word) + 1);
+            } else {
+                wordCounter.put(word, 1);
+            }
+            System.out.println();
         }
-        System.out.println("Peters");
-        for (String number: phoneBook.get("Peters")) {
-            System.out.println(" " + number);
-        }
-        System.out.println("Williams");
-        for (String number: phoneBook.get("Williams")) {
-            System.out.println(" " + number);
-        }
-        System.out.println("Brown");
-        for (String number: phoneBook.get("Brown")) {
-            System.out.println(" " + number);
+        for (Map.Entry<String, Integer> uniqueWords: wordCounter.entrySet()) {
+            System.out.println(uniqueWords.getKey() + " - " + uniqueWords.getValue());
         }
     }
 }
