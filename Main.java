@@ -33,6 +33,3 @@ public class Main {
         }
         for (Map.Entry<String, Integer> uniqueWords: wordCounter.entrySet()) {
             System.out.println(uniqueWords.getKey() + " - " + uniqueWords.getValue());
-        }
-    }
-}
